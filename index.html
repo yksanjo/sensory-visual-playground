@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sensory Visual Playground</title>
+    <meta
+      name="description"
+      content="Configurable ambient visual scenes you can customize, remix, and publish."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <main class="layout" data-theme="dark">
+      <header class="layout__header">
+        <div>
+          <h1>Sensory Visual Playground</h1>
+          <p>
+            A zero-build canvas for ambient visuals. Choose a scene, tweak its options, and fork the
+            repo to craft your own sensory experience.
+          </p>
+        </div>
+        <div class="controls">
+          <label class="toggle" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" checked />
+            <span class="toggle__track">
+              <span class="toggle__thumb"></span>
+            </span>
+            <span class="toggle__label">Dark mode</span>
+          </label>
+        </div>
+      </header>
+
+      <section class="layout__content">
+        <aside class="side-panel">
+          <div class="panel-group">
+            <label for="scene-select" class="panel-label">Scene</label>
+            <select id="scene-select" class="input">
+              <option value="">Loading scenes...</option>
+            </select>
+            <p id="scene-description" class="panel-description"></p>
+          </div>
+
+          <div id="scene-controls" class="panel-group">
+            <h2>Scene Controls</h2>
+            <div class="panel-description">
+              Adjust knobs exposed by each scene. Edit <code>config/scenes.js</code> to add more.
+            </div>
+            <form id="controls-form" class="controls-form"></form>
+          </div>
+
+          <div class="panel-group">
+            <button id="restart-button" class="button">Restart scene</button>
+            <button id="fullscreen-button" class="button button--ghost">Toggle fullscreen</button>
+          </div>
+        </aside>
+
+        <div class="canvas-wrapper">
+          <canvas id="scene-canvas" aria-label="Ambient visual canvas"></canvas>
+          <div id="status-toast" class="toast" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <footer class="layout__footer">
+        <p>
+          Scenes live in <code>assets/scenes</code>. Configs live in <code>config/scenes.js</code>.
+          Remix, publish, and share.
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="./config/scenes.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
+</html>
